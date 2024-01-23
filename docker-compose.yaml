@@ -1,15 +1,15 @@
 version: "3"
 services:
     frontend:
-        container_name: client
+        container_name: web-app
         build:
-            context: ./client
+            context: ./web-app
             dockerfile: Dockerfile
         image: react
         ports:
             - "3000:3000"
         volumes:
-            - ./client:/app
+            - ./web-app:/app
     backend:
         container_name: backend
         build:
