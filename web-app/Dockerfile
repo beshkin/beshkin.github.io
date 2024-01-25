@@ -5,6 +5,7 @@ WORKDIR /app
 COPY package.json ./
 
 RUN yarn
+RUN yarn command-nest movies:import
 
 COPY . .
 

@@ -18,7 +18,7 @@ const Pagination: FC<Props> = (
         onPageChange,
         totalPageCount,
         siblingCount = 1,
-        currentPage= 1,
+        currentPage = 1,
     }
 ) => {
 
@@ -53,13 +53,14 @@ const Pagination: FC<Props> = (
             >
                 <div className={b('arrow', {left: true})}/>
             </li>
-            {paginationRange.map(pageNumber => {
+            {paginationRange.map((pageNumber, index) => {
                 if (pageNumber === DOTS) {
-                    return <li className={b('item', {dots:true})}>&#8230;</li>;
+                    return <li key={index} className={b('item', {dots: true})}>&#8230;</li>;
                 }
 
                 return (
                     <li
+                        key={index}
                         className={b('item', {
                             selected: pageNumber === currentPage
                         })}
@@ -75,7 +76,7 @@ const Pagination: FC<Props> = (
                 })}
                 onClick={onNext}
             >
-                <div className={b('arrow',{right:true})}/>
+                <div className={b('arrow', {right: true})}/>
             </li>
         </ul>
     );

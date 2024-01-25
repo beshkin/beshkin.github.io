@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MoviesService } from './modules/movies/movies.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Movie } from './modules/movies/entities/movie.entity';
-import { MoviesModule } from './modules/movies/movies.module';
+import { Movie } from '@modules/movies/entities/movie.entity';
+import { MoviesModule } from '@modules/movies/movies.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -23,6 +24,6 @@ import { MoviesModule } from './modules/movies/movies.module';
     MoviesModule,
   ],
   controllers: [AppController],
-  providers: [AppService, MoviesService],
+  providers: [AppService],
 })
 export class AppModule {}

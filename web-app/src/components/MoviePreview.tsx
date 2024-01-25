@@ -10,8 +10,8 @@ interface Props {
 const b = block(s);
 
 export const MoviePreview: FC<Props> = ({movie}) => {
-    const {title, overview, poster_path} = movie;
-    const imageUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
+    const {title, overview, image} = movie;
+    const imageUrl = `https://image.tmdb.org/t/p/w500${image}`;
 
     return (<div className={b('card')}>
         <img src={imageUrl} alt="Avatar" className={b('image')}/>

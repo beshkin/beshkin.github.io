@@ -7,6 +7,6 @@ export class MoviesController {
 
   @Get(':page?')
   getMovies(@Param('page') page: number = 1) {
-    return this.moviesService.getMovies(page);
+    return this.moviesService.getMoviesDb(page);
   }
 }

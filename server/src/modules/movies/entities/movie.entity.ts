@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class Movie {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   external_id: number;
@@ -11,7 +11,7 @@ export class Movie {
   @Column()
   title: string;
 
-  @Column()
+  @Column({ nullable: true, type: 'text' })
   overview: string;
 
   @Column()
