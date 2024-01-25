@@ -19,3 +19,7 @@ More information about installation and maintenance you can find on the page [RE
 
 ## Database
 Mysql is used for storing data.
+
+
+## Comments
+Comments can be found here [COMMENTS.md](COMMENTS.md)
