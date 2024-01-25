@@ -1,22 +1,15 @@
 import React from 'react';
-import './App.css';
-import {useFetchMovies} from "./hooks/useFetchMovies";
-import {Movie} from "./scripts/fetchMovies";
+import {MoviesList} from "./components/MoviesList";
+import block from "bem-css-modules";
+import s from './App.module.scss';
 
+const b = block(s);
 function App() {
-  const {loading, movies, totalPages}  = useFetchMovies();
-
-  if (loading){
-    return (<div>Loading...</div>)
-  }
-  return (
-    <div className="App">
-      {movies.map(({title}:Movie, index:number)=>(
-          <div key={index}>{title}</div>
-      ))}
-      {totalPages}
-    </div>
-  );
+    return (
+        <div className={b()}>
+            <MoviesList/>
+        </div>
+    );
 }
 
 export default App;

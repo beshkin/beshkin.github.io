@@ -20,6 +20,7 @@ export const useFetchMovies = () => {
         movies,
         error,
         totalPages,
+        currentPage: page,
         setPage
     }
 }

@@ -10,7 +10,7 @@ export interface Movie {
 }
 
 interface RequestParams {
-    page: number;
+    page: number|string;
 }
 
 interface MoviesState {
