@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/beshkin.github.io/static/css/main.c163fb3e.css",
-    "main.js": "/beshkin.github.io/static/js/main.1605cfa1.js",
-    "static/js/787.a9f86cd4.chunk.js": "/beshkin.github.io/static/js/787.a9f86cd4.chunk.js",
-    "index.html": "/beshkin.github.io/index.html",
-    "main.c163fb3e.css.map": "/beshkin.github.io/static/css/main.c163fb3e.css.map",
-    "main.1605cfa1.js.map": "/beshkin.github.io/static/js/main.1605cfa1.js.map",
-    "787.a9f86cd4.chunk.js.map": "/beshkin.github.io/static/js/787.a9f86cd4.chunk.js.map"
+    "main.css": "/movies/static/css/main.c163fb3e.css",
+    "main.js": "/movies/static/js/main.cd762d20.js",
+    "static/js/787.a9f86cd4.chunk.js": "/movies/static/js/787.a9f86cd4.chunk.js",
+    "index.html": "/movies/index.html",
+    "main.c163fb3e.css.map": "/movies/static/css/main.c163fb3e.css.map",
+    "main.cd762d20.js.map": "/movies/static/js/main.cd762d20.js.map",
+    "787.a9f86cd4.chunk.js.map": "/movies/static/js/787.a9f86cd4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c163fb3e.css",
-    "static/js/main.1605cfa1.js"
+    "static/js/main.cd762d20.js"
   ]
 }
