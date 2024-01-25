@@ -1,27 +1,24 @@
 import {useEffect, useState} from "react";
-import {fetchMovies} from "../scripts/fetchMovies";
+import {fetchMovies, selectError, selectLoading, selectMovies, selectTotalPages} from "../scripts/fetchMovies";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch} from "../app/store";
 
 export const useFetchMovies = () => {
-    const [loading, setLoading] = useState(true);
-    const [movies, setMovies] = useState([]);
-    const [totalPages, setTotalPages] = useState(0);
-    const [page, setPage] = useState(1);
+    const dispatch = useDispatch<AppDispatch>()
+    const movies = useSelector(selectMovies)
+    const totalPages = useSelector(selectTotalPages)
+    const loading = useSelector(selectLoading)
+    const error = useSelector(selectError)
+    const [page, setPage] = useState<number>(1);
 
     useEffect(() => {
-        fetchMovies(page).then(response => {
-            const {results, total_pages} = response;
-            setMovies(results);
-            setTotalPages(total_pages);
-            setLoading(false);
-        }).catch(error => {
-            setLoading(false);
-            console.log(error)
-        });
-    }, [page])
+        dispatch(fetchMovies({page}))
+    }, [dispatch, page])
 
     return {
         loading,
         movies,
+        error,
         totalPages,
         setPage
     }

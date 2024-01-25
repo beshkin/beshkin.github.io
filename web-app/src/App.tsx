@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {useFetchMovies} from "./hooks/useFetchMovies";
+import {Movie} from "./scripts/fetchMovies";
 
 function App() {
   const {loading, movies, totalPages}  = useFetchMovies();
@@ -10,7 +11,7 @@ function App() {
   }
   return (
     <div className="App">
-      {movies.map(({title}, index)=>(
+      {movies.map(({title}:Movie, index:number)=>(
           <div key={index}>{title}</div>
       ))}
       {totalPages}
