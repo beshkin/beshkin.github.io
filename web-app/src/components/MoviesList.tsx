@@ -10,7 +10,7 @@ import {useFetchMovies} from "../hooks/useFetchMovies";
 
 const b = block(s);
 export const MoviesList: FC = () => {
-    const {loading, movies, totalPages, currentPage, setPage, search, setSearch,} = useFetchMovies();
+    const {movies, totalPages, currentPage, setPage, search, setSearch,} = useFetchMovies();
 
     return (<>
         <div>
