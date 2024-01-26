@@ -10,17 +10,20 @@ export const useFetchMovies = () => {
     const loading = useSelector(selectLoading)
     const error = useSelector(selectError)
     const [page, setPage] = useState<number>(1);
+    const [search, setSearch] = useState<string>('')
 
     useEffect(() => {
-        dispatch(fetchMovies({page}))
-    }, [dispatch, page])
+        dispatch(fetchMovies({page, search}));
+    },[dispatch, page, search])
 
     return {
         loading,
         movies,
+        search,
         error,
         totalPages,
         currentPage: page,
-        setPage
+        setPage,
+        setSearch
     }
 }

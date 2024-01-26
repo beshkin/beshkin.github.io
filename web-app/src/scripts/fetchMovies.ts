@@ -10,7 +10,8 @@ export interface Movie {
 }
 
 interface RequestParams {
-    page: number|string;
+    page: number;
+    search?: string;
 }
 
 interface MoviesState {
@@ -20,8 +21,13 @@ interface MoviesState {
     error: string | null
 }
 
-export const fetchMovies = createAsyncThunk('movies/fetch', async (params: RequestParams) => {
-    const {page} = params;
+export const fetchMovies= createAsyncThunk('movies/fetch', async ({page, search}: RequestParams) => {
+    if (search){
+        const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/movies/${page}`, {search});
+
+        return data;
+    }
+
     const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/movies/${page}`);
 
     return data;
