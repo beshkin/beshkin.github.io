@@ -43,22 +43,24 @@ export class MoviesService {
   @Cron(CronExpression.EVERY_DAY_AT_11PM)
   async importAll() {
     const savedMovies = await this.findAll();
-    const { results } = await this.getMovies();
 
-    for (const obj of results) {
-      const { id: external_id, title, overview, poster_path } = obj;
-      const movie: Movie = {
-        external_id,
-        title,
-        image: poster_path,
-        overview,
-      };
-      if (
-        !savedMovies.some(
-          (savedMovie) => savedMovie.external_id === external_id,
-        )
-      ) {
-        await this.save(movie);
+    for (let page = 1; page <= 10; page++) {
+      const { results } = await this.getMovies(page);
+      for (const obj of results) {
+        const { id: external_id, title, overview, poster_path } = obj;
+        const movie: Movie = {
+          external_id,
+          title,
+          image: poster_path,
+          overview,
+        };
+        if (
+          !savedMovies.some(
+            (savedMovie) => savedMovie.external_id === external_id,
+          )
+        ) {
+          await this.save(movie);
+        }
       }
     }
   }
