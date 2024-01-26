@@ -11,7 +11,7 @@ Otherwise, just install all the packages with `yarn` command.
 ```shell
 cp .env.example .env
 ```
-2. Update datbase settings for your local setup.
+2. Update database settings for your local setup.
 Note: in case you use docker image from the project, you don't need to change database.
 3. Add API ACCESS key from The Movie DB ([https://www.themoviedb.org/](https://www.themoviedb.org/))
 You need to register and obtain the API key from Profile > API page.
