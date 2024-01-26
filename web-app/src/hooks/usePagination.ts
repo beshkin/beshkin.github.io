@@ -1,6 +1,6 @@
 import {useMemo} from "react";
 
-interface PaginationProps {
+export interface PaginationProps {
     totalPageCount:number;
     siblingCount:number;
     currentPage:number;

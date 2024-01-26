@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {DOTS, usePagination} from "../hooks/usePagination";
+import {DOTS, PaginationProps, usePagination} from "../hooks/usePagination";
 import block from "bem-css-modules";
 
 import s from './Pagination.module.scss';
@@ -26,18 +26,24 @@ const Pagination: FC<Props> = (
         currentPage,
         totalPageCount,
         siblingCount,
-    });
+    } as PaginationProps);
 
     if (currentPage === 0 || !paginationRange || paginationRange.length < 2) {
         return null;
     }
 
     const onNext = () => {
-        onPageChange(currentPage + 1);
+        const nextPage = currentPage + 1
+        if (nextPage <= lastPage) {
+            onPageChange(nextPage);
+        }
     };
 
     const onPrevious = () => {
-        onPageChange(currentPage - 1);
+        const prevPage = currentPage - 1;
+        if (prevPage > 0) {
+            onPageChange(prevPage);
+        }
     };
 
     let lastPage = paginationRange[paginationRange.length - 1];
@@ -51,7 +57,7 @@ const Pagination: FC<Props> = (
                 })}
                 onClick={onPrevious}
             >
-                <div className={b('arrow', {left: true})}/>
+                <div className={b('arrow', {left: true, disabled: currentPage === 1})}/>
             </li>
             {paginationRange.map((pageNumber, index) => {
                 if (pageNumber === DOTS) {
@@ -76,7 +82,7 @@ const Pagination: FC<Props> = (
                 })}
                 onClick={onNext}
             >
-                <div className={b('arrow', {right: true})}/>
+                <div className={b('arrow', {right: true, disabled: currentPage === lastPage})}/>
             </li>
         </ul>
     );
