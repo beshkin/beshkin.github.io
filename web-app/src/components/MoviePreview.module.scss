@@ -26,8 +26,8 @@
     padding: 2px 16px;
     color: #fff;
     min-height: 50%;
-    width: 0; /* Ignore intrinsic width */
-    min-width: 100%; /* Instead of width */
+    width: 0;
+    min-width: 100%;
     box-sizing: border-box;
     background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(0, 0, 0,0.8));
   }
